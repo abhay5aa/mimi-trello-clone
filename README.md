@@ -15,34 +15,36 @@ Web app to manage tasks and projects.
 ## 2. If users can comment on tasks 
 ## 3. How will you do error handling?
 
-Scenario 1: If a user can create and edit stages for a particular board
+## Scenario 1: If a user can create and edit stages for a particular board
 Tables: In this scenario, you would need to introduce a new table to store the stages associated with a board. Your existing tables might include:
-User: Stores user information.
-Board: Stores information about boards.
-Stage: Currently, you have predefined stages (e.g., Todo, Doing, Done). You might replace this with a new table like BoardStage to allow users to create and edit stages specific to their boards.
-API Endpoints: New API endpoints would be required to support the creation and editing of stages for a board. Existing API endpoints might also need updates to reflect these changes. Here are examples of what you might need:
-POST /api/boards/:boardId/stages: Create a new stage for a specific board.
-PUT /api/boards/:boardId/stages/:stageId: Update an existing stage for a specific board.
-GET /api/boards/:boardId/stages: Retrieve all stages for a specific board.
-Scenario 2: If users can comment on tasks
+User: Stores user information.
+Board: Stores information about boards.
+Stage: Currently, you have predefined stages (e.g., Todo, Doing, Done). You might replace this with a new table like BoardStage to allow users to create and edit stages specific to their boards.
+##API Endpoints: New API endpoints would be required to support the creation and editing of stages for a board. Existing API endpoints might also need updates to reflect these changes. Here are examples of what you might need:
+POST /api/boards/:boardId/stages: Create a new stage for a specific board.
+PUT /api/boards/:boardId/stages/:stageId: Update an existing stage for a specific board.
+GET /api/boards/:boardId/stages: Retrieve all stages for a specific board.
+
+
+## Scenario 2: If users can comment on tasks
 Tables: To support comments on tasks, you would need to introduce a new table for comments. Your existing tables might include:
-User: Stores user information.
-Board: Stores information about boards.
-Stage: Stores information about stages.
-Task: Stores information about tasks.
-Comment: This new table would store comments made by users on tasks.
-API Endpoints: New API endpoints would be required to support commenting on tasks, and the existing endpoints might need updates. Here are examples of what you might need:
-POST /api/tasks/:taskId/comments: Create a new comment on a specific task.
-GET /api/tasks/:taskId/comments: Retrieve all comments for a specific task.
-PUT /api/tasks/:taskId/comments/:commentId: Update an existing comment on a specific task.
-DELETE /api/tasks/:taskId/comments/:commentId: Delete a comment on a specific task.
-Scenario 3: Error Handling
+User: Stores user information.
+Board: Stores information about boards.
+Stage: Stores information about stages.
+Task: Stores information about tasks.
+Comment: This new table would store comments made by users on tasks.
+## API Endpoints: New API endpoints would be required to support commenting on tasks, and the existing endpoints might need updates. Here are examples of what you might need:
+POST /api/tasks/:taskId/comments: Create a new comment on a specific task.
+GET /api/tasks/:taskId/comments: Retrieve all comments for a specific task.
+PUT /api/tasks/:taskId/comments/:commentId: Update an existing comment on a specific task.
+DELETE /api/tasks/:taskId/comments/:commentId: Delete a comment on a specific task.
+## Scenario 3: Error Handling
 Error handling is an essential aspect of any application. You should consider adding standardized error responses to your API to provide clear feedback to the client. Here are some common practices:
-Use appropriate HTTP status codes (e.g., 400 for client errors, 500 for server errors).
-Include error messages and codes in the response payload to help clients identify the issue.
-Implement global error handling middleware that catches unhandled errors and formats responses consistently.
-Log errors on the server for debugging purposes.
-Consider rate limiting and authentication errors as well.
+Use appropriate HTTP status codes (e.g., 400 for client errors, 500 for server errors).
+Include error messages and codes in the response payload to help clients identify the issue.
+Implement global error handling middleware that catches unhandled errors and formats responses consistently.
+Log errors on the server for debugging purposes.
+Consider rate limiting and authentication errors as well.
 For example, you might have a standardized error response format like:
 {
   "error": {
